@@ -16,7 +16,7 @@ pipeline {
 		stage ('Build') {
 		steps {
 			sh 'echo $MY_JOB'
-			sh 'echo $MY_INIT_VAR'
+			sh 'mvn clean install'
 		}
 		}
 	
