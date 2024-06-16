@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	tools {
+	'maven'
+	}
 	environment {
 		MY_JOB = 'This is my Jenkins job'
 	}
