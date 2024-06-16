@@ -13,6 +13,12 @@ pipeline {
 			sh 'echo $MY_INIT_VAR'
 			}
 		}
+		stage ('Build') {
+		steps {
+			sh 'echo $MY_JOB'
+			sh 'echo $MY_INIT_VAR'
+		}
+		}
 	
 	}
 	
