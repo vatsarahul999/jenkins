@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	tools {
 	 maven 'maven 3.6.3'
+	 jdk 'jdk17'
 	}
 	environment {
 		MY_JOB = 'This is my Jenkins job'
