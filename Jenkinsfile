@@ -6,6 +6,7 @@ pipeline {
 	}
 	environment {
 		MY_JOB = 'This is my Jenkins job'
+		JAVA_HOME =../JAVA_HOME_17
 	}
 	stages {
 		stage('Initialize'){
