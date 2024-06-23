@@ -6,7 +6,7 @@ pipeline {
 	}
 	environment {
 		MY_JOB = 'This is my Jenkins job'
-		JAVA_HOME = tool name:'jdk17', type = jdk
+		JAVA_HOME = tool name:'jdk17', type: 'jdk'
 	}
 	stages {
 		stage('Initialize'){
