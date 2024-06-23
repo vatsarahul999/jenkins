@@ -14,12 +14,9 @@ pipeline {
 
     stages {
         stage('Initialize') {
-            environment {
-                MY_INIT_VAR = 'Initialize env var'
-            }
             steps {
                 sh 'echo $MY_JOB'
-                sh 'echo $MY_INIT_VAR'
+                sh 'echo $PATH'
             }
         }
         
@@ -27,6 +24,7 @@ pipeline {
             steps {
                 sh 'echo $MY_JOB'
                 sh 'echo JAVA_HOME=$JAVA_HOME'
+                sh 'echo PATH=$PATH'
                 sh 'mvn clean install'
             }
         }
