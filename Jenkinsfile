@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         MY_JOB = 'This is my Jenkins job'
-        JAVA_HOME = "${tool name: 'jdk17', type: 'jdk'}"
+        JAVA_HOME = tool name: 'jdk17', type: 'jdk'
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
     }
 
@@ -25,12 +25,18 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'echo $MY_JOB'
-                sh 'echo JAVA_HOME=$JAVA_HOME'
-                sh 'echo PATH=$PATH'
-                sh 'java -version'
-                sh 'javac -version'
-                sh 'mvn clean install'
+                script {
+                    env.JAVA_HOME = tool name: 'jdk17', type: 'jdk'
+                    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+                }
+                sh '''
+                    echo $MY_JOB
+                    echo JAVA_HOME=$JAVA_HOME
+                    echo PATH=$PATH
+                    java -version
+                    javac -version
+                    mvn clean install
+                '''
             }
         }
     }
